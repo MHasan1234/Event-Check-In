@@ -53,7 +53,7 @@ A full-stack MERN application that allows users to view upcoming events and chec
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/event-checkin.git
+git clone https://github.com/MHasan1234/Event-Check-In.git
 cd event-checkin
 ```
 
@@ -91,9 +91,10 @@ Any name and email will work. The user will be auto-created and logged in.
 
 ## 📸 Screenshots
 
-_Add screenshots here (optional)._
+![image](https://github.com/user-attachments/assets/e5fbb24a-c381-4ec0-bec9-c182fe752ac7)
+![image](https://github.com/user-attachments/assets/4eefb337-f1b1-43d9-87f7-37a158f3012a)
+![image](https://github.com/user-attachments/assets/3f4f0fba-ba76-4986-85c8-e8ad6e7e1c50)
 
----
 
 ## 📢 Realtime Flow
 
@@ -106,4 +107,4 @@ _Add screenshots here (optional)._
 ## 🙏 Acknowledgements
 
 Submitted by: **Mushirul Hassan**  
-Email: _your-email@example.com_
+Email: mushirulhassan2@gmail.com
