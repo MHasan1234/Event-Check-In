@@ -1,7 +1,11 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const { loginSchema } = require("../validators/authValidator");
 
 const login = async (req, res) => {
+  const { error } = loginSchema.validate(req.body);
+  if (error) return res.status(400).json({ message: error.details[0].message });
+
   const { email, name } = req.body;
 
   if (!email || !name) {

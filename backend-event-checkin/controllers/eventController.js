@@ -6,7 +6,19 @@ const getAllEvents = async (req, res) => {
   const events = await Event.find().populate('attendees', 'name email');
   res.json(events);
 };
-
+// controllers/eventController.js
+const getEventById = async (req, res) => {
+  try {
+    const event = await Event.findById(req.params.id).populate('attendees', 'name email');
+    if (!event) {
+      return res.status(404).json({ message: 'Event not found' });
+    }
+    res.json({ event, attendees: event.attendees });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
 const joinEvent = (io) => async (req, res) => {
   const eventId = req.params.id;
   const token = req.headers.authorization?.split(' ')[1];
@@ -30,7 +42,7 @@ const joinEvent = (io) => async (req, res) => {
 
     const updatedEvent = await Event.findById(eventId).populate('attendees', 'name');
 
-    // 🔥 Emit real-time update
+    //  Emit real-time update
     io.emit('eventUpdated', { eventId, attendees: updatedEvent.attendees });
 
     res.json({ message: 'Joined event successfully', attendees: updatedEvent.attendees });
@@ -41,6 +53,6 @@ const joinEvent = (io) => async (req, res) => {
 };
 
 module.exports = {
-  getAllEvents,
+  getAllEvents,getEventById,
   joinEvent,
 };
